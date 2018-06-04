@@ -4,6 +4,8 @@ import {
     compileSass_dev,
     compileSass_dist,
 
+    uglifyScript_dist,    
+
     // concatScripts_dev,
     // concatScripts_dist,
 
@@ -11,8 +13,8 @@ import {
     cleanTemp,
     cleanDist,
     copyApp,
-    copyTemp,
-    fixRefs,
+    injectStyle,
+    injectScript,
     updatePM2File,
     linkServer
 } from './tasks';
@@ -34,10 +36,11 @@ gulp.task('build',
         cleanTemp,
 
         compileSass_dist,
+        uglifyScript_dist,
 
         copyApp,
-        copyTemp,
-        fixRefs,
+        injectStyle,
+        injectScript,
         updatePM2File(__dirname),
         linkServer
     )

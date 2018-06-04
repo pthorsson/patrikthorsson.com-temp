@@ -1,4 +1,4 @@
-var _page = {
+window._page = {
 
     email: function(element) {
         var address = element.getAttribute('data-address'),

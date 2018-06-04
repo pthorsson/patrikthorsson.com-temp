@@ -5,9 +5,9 @@ import uglify from 'gulp-uglify';
  * Uglifies scripts for dist.
  */
 
-export function script_dist() {
+export function uglifyScript_dist() {
     return gulp.src([
-            './.tmp/script.js'
+            './app/script.js'
         ])
         .pipe(uglify())
         .pipe(gulp.dest('./.tmp/'));

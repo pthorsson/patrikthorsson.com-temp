@@ -34,7 +34,7 @@ export function compileSass_dev() {
 };
 
 export function compileSass_dist() {
-    return gulp.src('app/styles.scss')
+    return gulp.src('app/style.scss')
         .pipe(plumber(function(error) {
             console.log(error.message);
             this.emit('end');

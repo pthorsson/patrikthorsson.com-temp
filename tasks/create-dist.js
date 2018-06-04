@@ -4,6 +4,7 @@ import replace from 'gulp-replace';
 import symlink from 'gulp-symlink';
 import vfs from 'vinyl-fs';
 import path from 'path';
+import fs from 'fs';
 
 /**
  * Copies app files to 
@@ -12,23 +13,33 @@ import path from 'path';
 export function copyApp() {
     return gulp.src([
             'pm2.json',
-            'app/index.html',
-            'app/images/**',
-            'app/pages/**/*.html'
+            'app/index.html'
         ], {
             base: './'
         })
         .pipe(gulp.dest('dist/'));
 }
 
-export function copyTemp() {
-    return gulp.src([
-            '.tmp/style.*.min.css',
-            '.tmp/script.*.min.js'
-        ], {
-            base: './.tmp'
-        })
-        .pipe(gulp.dest('dist/app'));
+export function injectScript() {
+    return gulp.src('dist/app/index.html', {
+        base: './dist'
+    })
+    .pipe(replace(/<script src="script\.js"><\/script>/, function(s) {
+        var style = fs.readFileSync('./.tmp/script.js', 'utf8');
+        return '<script>' + style + '</script>';
+    }))
+    .pipe(gulp.dest('dist'));
+}
+
+export function injectStyle() {
+    return gulp.src('dist/app/index.html', {
+        base: './dist'
+    })
+    .pipe(replace(/<link rel="stylesheet" href="style\.css">/, function(s) {
+        var style = fs.readFileSync('./.tmp/style.css', 'utf8');
+        return '<style>' + style + '</style>';
+    }))
+    .pipe(gulp.dest('dist'));
 }
 
 export function updatePM2File(rootPath) {
@@ -49,16 +60,7 @@ export function cleanTemp() {
         .pipe(clean());
 }
 
-export function fixRefs() {
-    return gulp.src('dist/app/index.html')
-        .pipe(replace('"/style.css"', `"/style.${revNr}.min.css"`))
-        .pipe(replace('"/script.js"', `"/script.${revNr}.min.js"`))
-        .pipe(gulp.dest('dist/app/'));
-}
-
 export function linkServer() {
     return vfs.src('server/')
         .pipe(vfs.symlink('dist/server/'));
 }
-
-export const revNr = new Date().getTime().toString(16);
