@@ -1,0 +1,15 @@
+{
+    "apps" : [{
+      "name": "patrikthorsson.com-temp",
+      "script": "server.js",
+      "cwd": "PATH_TO_APP",
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": 9000
+      },
+      "env_production": {
+         "NODE_ENV": "production",
+         "PORT": 9005
+      }
+    }]
+  }

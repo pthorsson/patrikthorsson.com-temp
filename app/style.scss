@@ -1,0 +1,14 @@
+@import 'reset'; 
+
+.page {
+
+    &__email {
+        &::before {
+            content: attr(data-address);
+        }
+
+        &::after {
+            content: attr(data-site);
+        }
+    }
+}
