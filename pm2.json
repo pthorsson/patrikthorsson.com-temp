@@ -5,7 +5,7 @@
       "cwd": "PATH_TO_APP",
       "env": {
         "NODE_ENV": "development",
-        "PORT": 9000
+        "PORT": 9005
       },
       "env_production": {
          "NODE_ENV": "production",
