@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Patrik Thorsson</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    <h1>Patrik Thorsson</h1>
-    <h2>
-        <span>UI Designer</span>
-        <span>/</span>
-        <span>Front end developer</span>
-    </h2>
-    <a href="javascript:void(0);" class="page__email" onclick="_page.email(this);" data-address="hello" data-site="patrikthorsson.com">@</a>
-    <script src="script.js"></script>
+    <div class="profile-image-wrapper animate animate-chain-1">
+        <img src="profile-pic.jpg" alt="Profile picture" onload="page.setState('picture', true)">
+    </div>
+    <div class="headings">
+        <h1 class="animate animate-chain-2">Patrik Thorsson</h1>
+        <h2 class="animate animate-chain-3">
+            <span>UI Designer</span>
+            <span>/</span>
+            <span>Front end developer</span>
+        </h2>
+    </div>
+    <p class="about animate animate-chain-4">
+        I live in Gothenburg, Sweden and currently work with UX and front end development in e-commerce
+        at <a href="https://www.fiwe.com/se/" target="_blank">Fiwe</a>. Check out some stuff I made at my <a href="https://github.com/pthorsson" target="_blank">github</a>.
+    </p>
+    <p class="links animate animate-chain-5">
+        <a href="https://www.linkedin.com/in/pthorsson" target="_blank">in/pthorsson</a>
+        <span class="link-separator">·</span>
+        <a href="javascript:void(0);" class="email-link" onclick="page.clickEmail(this);" data-site="patrikthorsson.com">hello@</a>
+    </p>
 </body>
 </html>
