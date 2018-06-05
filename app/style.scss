@@ -1,9 +1,14 @@
 @import 'reset';
+@import 'utils';
 
 $font-color: #454545;
 $font-family: 'Montserrat', sans-serif;
 $font-weight-regular: 500;
 $font-weight-bold: 700;
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     height: 100%;
@@ -18,7 +23,8 @@ body {
     align-items: center;
     min-height: 100%;
     font-weight: $font-weight-regular;
-    font-size: 14px;
+    font-size: rem-calc(14px);
+    padding: rem-calc(20px);
 }
 
 a {
@@ -34,7 +40,7 @@ a {
         bottom: 0;
         left: 0;
         opacity: 0;
-        border-bottom: 2px solid $font-color;
+        border-bottom: rem-calc(2px) solid $font-color;
         transform: translateY(1px);
         transition: opacity 300ms, transform 300ms;
     }
@@ -50,11 +56,11 @@ a {
 
 .profile-image-wrapper {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: rem-calc(150px);
+    height: rem-calc(150px);
     overflow: hidden;
     border-radius: 100%;
-    margin-bottom: 40px;
+    margin-bottom: rem-calc(40px);
 
     &::after {
         content: '';
@@ -64,7 +70,7 @@ a {
         height: 100%;
         width: 100%;
         border-radius: 100%;
-        box-shadow: inset 0px 0px 0px 2px rgba(0,0,0,.05);
+        box-shadow: inset 0px 0px 0px rem-calc(2px) rgba(0,0,0,.05);
     }
 
     img {
@@ -76,31 +82,31 @@ a {
 
 .headings {
     h1 {
-        font-size: 36px;
+        font-size: rem-calc(36px);
         font-weight: $font-weight-bold;
     }
     
     h2 {
-        margin-top: 10px;
+        margin-top: rem-calc(10px);
         font-weight: 500;
-        font-size: 17px;
+        font-size: rem-calc(17px);
         display: flex;
         justify-content: space-between;
-        padding: 0 1px;
+        padding: 0 rem-calc(1px);
     }
 }
 
 .about {
-    margin-top: 25px;
-    max-width: 500px;
+    margin-top: rem-calc(25px);
+    max-width: rem-calc(500px);
     text-align: center;
     line-height: 1.7;
 }
 
 .links {
-    margin-top: 25px;
+    margin-top: rem-calc(25px);
     text-align: center;
-    max-width: 500px;
+    max-width: rem-calc(500px);
     padding-bottom: 14vh;
     line-height: 1.7;
 
@@ -109,7 +115,7 @@ a {
     }
 
     .link-separator {
-        margin: 0 5px;
+        margin: 0 rem-calc(5px);
     }
 }
 
@@ -118,8 +124,9 @@ a {
     $base_modifier: 4;
 
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(rem-calc(-20px));
     transition: opacity 400ms, transform 400ms;
+    will-change: opacity, transform;
 
     @for $i from 1 through 10 {
         $modifier: $i / $base_modifier;
