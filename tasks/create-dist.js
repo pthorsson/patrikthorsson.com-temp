@@ -13,7 +13,8 @@ import fs from 'fs';
 export function copyApp() {
     return gulp.src([
             'pm2.json',
-            'app/index.html'
+            'app/index.html',
+            'app/*.jpg',
         ], {
             base: './'
         })
