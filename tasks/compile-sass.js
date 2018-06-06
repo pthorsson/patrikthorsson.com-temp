@@ -19,7 +19,7 @@ const autoprefixerConfig = {
  */
 
 export function compileSass_dev() {
-    return gulp.src('app/style.scss')
+    return gulp.src('app/style/style.scss')
         .pipe(plumber(function(error) {
             console.log(error.message);
             this.emit('end');
@@ -34,7 +34,7 @@ export function compileSass_dev() {
 };
 
 export function compileSass_dist() {
-    return gulp.src('app/style.scss')
+    return gulp.src('app/style/style.scss')
         .pipe(plumber(function(error) {
             console.log(error.message);
             this.emit('end');
