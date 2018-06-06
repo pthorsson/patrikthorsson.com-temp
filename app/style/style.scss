@@ -5,6 +5,8 @@ $font-color: #454545;
 $font-family: 'Montserrat', sans-serif;
 $font-weight-regular: 500;
 $font-weight-bold: 700;
+$font-weight-regular-mac: 400;
+$font-weight-bold-mac: 600;
 
 * {
     box-sizing: border-box;
@@ -80,20 +82,18 @@ a {
     }
 }
 
-.headings {
-    h1 {
-        font-size: rem-calc(36px);
-        font-weight: $font-weight-bold;
-    }
-    
-    h2 {
-        margin-top: rem-calc(10px);
-        font-weight: 500;
-        font-size: rem-calc(17px);
-        display: flex;
-        justify-content: space-between;
-        padding: 0 rem-calc(1px);
-    }
+h1 {
+    font-size: rem-calc(36px);
+    font-weight: $font-weight-bold;
+}
+
+h2 {
+    margin-top: rem-calc(10px);
+    font-weight: $font-weight-regular;
+    font-size: rem-calc(17px);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 rem-calc(1px);
 }
 
 .about {
@@ -140,4 +140,25 @@ a {
 .page-ready .animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/**
+ * Font weight fix for mac
+ */
+.is-mac {
+    body {
+        font-weight: $font-weight-regular-mac;
+    }
+
+    a {
+        font-weight: $font-weight-bold-mac;
+    }
+
+    h1 {
+        font-weight: $font-weight-bold-mac;
+    }
+    
+    h2 {
+        font-weight: $font-weight-regular-mac;
+    }
 }

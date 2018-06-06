@@ -3,6 +3,7 @@
         public = {},
         state = {
             picture: false,
+            readyCallback: false
         };
 
     public.clickEmail = function(element) {
@@ -33,7 +34,3 @@
 
     w.page = public;
 })(window);
-
-page.ready(function() {
-    document.body.className = 'page-ready';
-});

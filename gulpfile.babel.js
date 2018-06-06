@@ -4,15 +4,13 @@ import {
     compileSass_dev,
     compileSass_dist,
 
-    uglifyScript_dist,    
-
-    // concatScripts_dev,
-    // concatScripts_dist,
+    uglifyScript_dist,
 
     runNodemon,
     cleanTemp,
     cleanDist,
     copyApp,
+    injectAssets,
     injectStyle,
     injectScript,
     updatePM2File,
@@ -39,8 +37,7 @@ gulp.task('build',
         uglifyScript_dist,
 
         copyApp,
-        injectStyle,
-        injectScript,
+        injectAssets,
         updatePM2File(__dirname),
         linkServer
     )

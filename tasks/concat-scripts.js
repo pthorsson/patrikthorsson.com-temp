@@ -7,8 +7,10 @@ import uglify from 'gulp-uglify';
 
 export function uglifyScript_dist() {
     return gulp.src([
-            './app/script.js'
+            './app/script/script-header.js',
+            './app/script/script-footer.js'
         ])
         .pipe(uglify())
         .pipe(gulp.dest('./.tmp/'));
 }
+
