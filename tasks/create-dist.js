@@ -36,7 +36,7 @@ export function injectAssets() {
             var script = fs.readFileSync('./.tmp/script-footer.js', 'utf8');
             return '<script>' + script + '</script>';
         }))
-        .pipe(replace(/<link rel="stylesheet" href="style\.css">/, function(s) {
+        .pipe(replace(/<link rel="stylesheet" href="style\.css" \/>/, function(s) {
             var style = fs.readFileSync('./.tmp/style.css', 'utf8');
             return '<style>' + style + '</style>';
         }))
